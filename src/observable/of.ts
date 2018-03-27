@@ -1,3 +1,3 @@
 import {  ArrayObservable  } from './ArrayObservable';
 
-export const of = ArrayObservable.of;
+export const de = ArrayObservable.of;
