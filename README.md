@@ -9,7 +9,7 @@
 
 Biblioteca de Extensões Reativas para Javascript traduzida para Português. Esta é uma tradução do RxJS 5 em sua versão estável. O RxJS é uma reescrita de [Reactive-Extensions/RxJS](https://github.com/Reactive-Extensions/RxJS) e é a última versão pronta para produção do RxJS. Esta reescrita é para ter uma melhor performance, melhor modularidade, melhores debugs, ficar compatível com versões anteriores, com algumas mudanças essenciais que reduzem a superfície da API.
 
-[Apache 2.0 License](LICENSE.txt)
+[Apache 2.0 License do RxJS](LICENSE.txt)
 
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contribution Guidelines](CONTRIBUTING.md)
