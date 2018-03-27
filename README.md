@@ -5,9 +5,9 @@
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/rxjs5.svg)](https://saucelabs.com/u/rxjs5)
 
-# RxJS 5
+# BRxJS
 
-Reactive Extensions Library for JavaScript. This is a rewrite of [Reactive-Extensions/RxJS](https://github.com/Reactive-Extensions/RxJS) and is the latest production-ready version of RxJS. This rewrite is meant to have better performance, better modularity, better debuggable call stacks, while staying mostly backwards compatible, with some breaking changes that reduce the API surface.
+Biblioteca de Extensões Reativas para Javascript traduzida para Português. Esta é uma tradução do RxJS 5 em sua versão estável. O RxJS é uma reescrita de [Reactive-Extensions/RxJS](https://github.com/Reactive-Extensions/RxJS) e é a última versão pronta para produção do RxJS. Esta reescrita é para ter uma melhor performance, melhor modularidade, melhores debugs, ficar compatível com versões anteriores, com algumas mudanças essenciais que reduzem a superfície da API.
 
 [Apache 2.0 License](LICENSE.txt)
 
@@ -20,16 +20,16 @@ Reactive Extensions Library for JavaScript. This is a rewrite of [Reactive-Exten
 
 ## Versions In This Repository
 
-- [master](https://github.com/ReactiveX/rxjs/commits/master) - commits that will be included in the next _minor_ or _patch_ release
-- [next](https://github.com/ReactiveX/rxjs/commits/next) - commits that will be included in the next _major_ release (breaking changes)
+- [master](https://github.com/ReactiveX/rxjs/commits/master) - commits que serão incluidos no próximo lançamento de next _minor_ ou _patch_
+- [next](https://github.com/ReactiveX/rxjs/commits/next) - commits que serão incluídos no próximo lançamento de _major_ (novidades)
 
-Most PRs should be made to **master**, unless you know it is a breaking change.
+Maioria dos Pull Requests devem ser feitas para **master**, ao menos que você saiba que é uma novidade.
 
-## Important
+## Importante
 
-By contributing or commenting on issues in this repository, whether you've read them or not, you're agreeing to the [Contributor Code of Conduct](CODE_OF_CONDUCT.md). Much like traffic laws, ignorance doesn't grant you immunity.
+Por contribuir ou comentar em problemas neste repositório, tenha lido ou não, você está concordando com o [Contributor Code of Conduct](CODE_OF_CONDUCT.md). Parecido com regra de tráfego, ignorância não te dá imunidade.
 
-## Installation and Usage
+## Instalação e uso
 
 ### ES6 via npm
 
@@ -37,7 +37,7 @@ By contributing or commenting on issues in this repository, whether you've read 
 npm install rxjs
 ```
 
-To import the entire core set of functionality:
+Para importar o conjunto de funcionalidades em seu projeto:
 
 ```js
 import Rx from 'rxjs/Rx';
@@ -45,7 +45,7 @@ import Rx from 'rxjs/Rx';
 Rx.Observable.of(1,2,3)
 ```
 
-To import only what you need by patching (this is useful for size-sensitive bundling):
+Para importar somente os que você está usando (útil para projetos com preocupação com tamanho):
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -55,9 +55,9 @@ import 'rxjs/add/operator/map';
 Observable.of(1,2,3).map(x => x + '!!!'); // etc
 ```
 
-To import what you need and use it with proposed [bind operator](https://github.com/tc39/proposal-bind-operator):
+Para importar o que você precisa e usá-lo com o operador [bind operator](https://github.com/tc39/proposal-bind-operator):
 
-> Note: This additional syntax requires [transpiler support](http://babeljs.io/docs/plugins/transform-function-bind/) and this syntax may be completely withdrawn from TC39 without notice! Use at your own risk.
+> Nota: Esta sintaxe adicional requere [transpiler support](http://babeljs.io/docs/plugins/transform-function-bind/) e esta sintaxe pode ser completamente do TC39 sem aviso! Use sob sua responsabilidade.
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -69,13 +69,13 @@ Observable::of(1,2,3)::map(x => x + '!!!'); // etc
 
 ### CommonJS via npm
 
-To install this library for CommonJS (CJS) usage, use the following command:
+Para instalar esta biblioteca para uso em CommonJS (CJS), use o seguinte comando:
 
 ```sh
 npm install rxjs
 ```
 
-Import all core functionality:
+Importar toda funcionalidade:
 
 ```js
 var Rx = require('rxjs/Rx');
@@ -83,18 +83,18 @@ var Rx = require('rxjs/Rx');
 Rx.Observable.of(1,2,3); // etc
 ```
 
-Import only what you need and patch Observable (this is useful in size-sensitive bundling scenarios):
+Importar somente o que você precisa e empacotar o Observable (útil para cenários com preocupação com tamanho):
 
 ```js
 var Observable = require('rxjs/Observable').Observable;
-// patch Observable with appropriate methods
+// empacote o Observable com métodos apropriados
 require('rxjs/add/observable/of');
 require('rxjs/add/operator/map');
 
 Observable.of(1,2,3).map(function (x) { return x + '!!!'; }); // etc
 ```
 
-Import operators and use them _manually_ you can do the following (this is also useful for bundling):
+Importar operadores e usá-los _manualmente_, faça o seguinte (também útil para empacotamentos):
 
 ```js
 var of = require('rxjs/observable/of').of;
@@ -103,20 +103,20 @@ var map = require('rxjs/operator/map').map;
 map.call(of(1,2,3), function (x) { return x + '!!!'; });
 ```
 
-You can also use the above method to build your own Observable and export it from your own module.
+Você também pode usar os métodos acima para criar seu próprio Observable e exportá-lo do seu próprio módulo.
 
 
-### All Module Types (CJS/ES6/AMD/TypeScript) via npm
+### Todos Tipos de Módulo (CJS/ES6/AMD/TypeScript) via npm
 
-To install this library via [npm](https://www.npmjs.org) **version 3**, use the following command:
+Para instalar esta biblioteca via [npm](https://www.npmjs.org) **version 3**, use o seguinte comando:
 
 ```sh
 npm install @reactivex/rxjs
 ```
 
-This will include CJS/Global builds and can be used for all module types.
+Isto irá incluir _builds_ com CJS/Global e pode ser usado para todos os tipos de módulo.
 
-If you are using npm **version 2** before this library has achieved a stable version, you need to specify the library version explicitly:
+Se você está usando a **versão 2** do npm, antes desta biblioteca alcançar uma versão estável, você precisa especificar a versão da biblioteca explicitamente:
 
 ```sh
 npm install @reactivex/rxjs@5.0.0
@@ -124,80 +124,80 @@ npm install @reactivex/rxjs@5.0.0
 
 ### CDN
 
-For CDN, you can use [unpkg](https://unpkg.com/):
+Para CDN, você pode usar [unpkg](https://unpkg.com/):
   
 https://unpkg.com/rxjs/bundles/Rx.min.js
 
-#### Node.js Usage:
+#### Uso com Node.js:
 
 ```js
 var Rx = require('@reactivex/rxjs');
 
-Rx.Observable.of('hello world')
+Rx.Observable.of('olá mundo')
   .subscribe(function(x) { console.log(x); });
 ```
 
-## Goals
+## Metas
 
-- Provide better performance than preceding versions of RxJS
-- To model/follow the [Observable Spec Proposal](https://github.com/zenparsing/es-observable) to the observable.
-- Provide more modular file structure in a variety of formats
-- Provide more debuggable call stacks than preceding versions of RxJS
+- Fornecer melhor performance que versões anteriores do RxJS
+- Modelar/Seguir o [Observable Spec Proposal](https://github.com/zenparsing/es-observable) para o observable.
+- Fornecer mais estruturas de arquivos modulares em uma variedade de formatos
+- Fornecer mais possibilidade de debug que versões anteriores do RxJS
 
-## Building/Testing
+## Construções/Testes
 
-The build and test structure is fairly primitive at the moment. There are various npm scripts that can be run:
+A estrutura de _build_ e teste é relativamente primitiva no momento. Há vários scripts do npm que podem rodar:
 
-- build_es6: Transpiles the TypeScript files from `src/` to `dist/es6`
-- build_cjs: Transpiles the ES6 files from `dist/es6` to `dist/cjs`
-- build_amd: Transpiles the ES6 files from `dist/es6` to `dist/amd`
-- build_global: Transpiles/Bundles the CommonJS files from `dist/cjs` to `dist/global/Rx.js`
-- build_all: Performs all of the above in the proper order.
-- build_test: builds ES6, then CommonJS, then runs the tests with `jasmine`
-- build_perf: builds ES6, CommonJS, then global, then runs the performance tests with `protractor`
-- build_docs: generates API documentation from `dist/es6` to `dist/docs`
-- build_cover: runs `istanbul` code coverage against test cases
-- test: runs tests with `jasmine`, must have built prior to running.
-- tests2png: generates PNG marble diagrams from test cases.
+- build_es6: Transpila os arquivos TypeScript de `src/` para `dist/es6`
+- build_cjs: Transpila os arquivos TypeScript de `dist/es6` para `dist/cjs`
+- build_amd: Transpila os arquivos TypeScript de `dist/es6` para `dist/amd`
+- build_global: Transpila/Empacota os arquivos CommonJS de `dist/cjs` para `dist/global/Rx.js`
+- build_all: Executa todos os itens acima na ordem correta.
+- build_test: constrói ES6, então CommonJS, para então rodar os testes com `jasmine`
+- build_perf: constrói ES6, CommonJS, então o global, para então rodar os testes de performance com `protractor`
+- build_docs: gera documentação de API de `dist/es6` para `dist/docs`
+- build_cover: roda cobertura de código `istanbul` contra testes de caso
+- test: roda testes com `jasmine`, deve ter sido construído para rodar.
+- tests2png: gera diagramas de sequência em PNG a partir de casos de teste.
 
-`npm run info` will list available script.
+`npm run info` irá listar scripts disponíveis.
 
-### Example
+### Exemplo
 
 ```sh
-# build all the things!
+# constrói tudo!
 npm run build_all
 ```
 
-## Performance Tests
+## Testes de Performance
 
-Run `npm run build_perf` or `npm run perf` to run the performance tests with `protractor`.
-Run `npm run perf_micro` to run micro performance test benchmarking operator.
+Rode `npm run build_perf` ou `npm run perf` para começar os testes de performance com `protractor`.
+Rode `npm run perf_micro` para começar o operador de benchmarking de teste de micro desempenho.
 
-## Adding documentation
-RxNext uses [ESDoc](https://esdoc.org/) to generate API documentation. Refer to ESDoc's documentation for syntax. Run `npm run build_docs` to generate.
+## Adicionando documentação
+RxNext usa [ESDoc](https://esdoc.org/) para gerar documentação de API. Se refira à documentação do ESDoc para sintaxe. Rode `npm run build_docs` para gerar.
 
-## Generating PNG marble diagrams
+## Gerando diagramas de sequência em PNG
 
-The script `npm run tests2png` requires some native packages installed locally: `imagemagick`, `graphicsmagick`, and `ghostscript`.
+O script `npm run tests2png` requere alguns pacotes nativos instalados localmente: `imagemagick`, `graphicsmagick`, e `ghostscript`.
 
-For Mac OS X with [Homebrew](http://brew.sh/):
+Para Mac OS X com [Homebrew](http://brew.sh/):
 
 - `brew install imagemagick`
 - `brew install graphicsmagick`
 - `brew install ghostscript`
-- You may need to install the Ghostscript fonts manually:
-  - Download the tarball from the [gs-fonts project](https://sourceforge.net/projects/gs-fonts)
+- Você pode precisar instalar as fonts Ghostscript manualmente:
+  - Faça o download do tarball do [gs-fonts project](https://sourceforge.net/projects/gs-fonts)
   - `mkdir -p /usr/local/share/ghostscript && tar zxvf /path/to/ghostscript-fonts.tar.gz -C /usr/local/share/ghostscript`
 
-For Debian Linux:
+Para Debian Linux:
 
 - `sudo add-apt-repository ppa:dhor/myway`
 - `apt-get install imagemagick`
 - `apt-get install graphicsmagick`
 - `apt-get install ghostscript`
 
-For Windows and other Operating Systems, check the download instructions here:
+Para Windows e outros Sistemas operacionais, confira as instruções de download aqui:
 
 - http://imagemagick.org
 - http://www.graphicsmagick.org
